@@ -34,6 +34,7 @@ read the CNCF [announcement].
 - controller.yaml
 - cwinsight.yaml
 - scaler.yaml
+- autoscaler.yaml
 
 ### Software and Framework to be install and download.
 - [eksctl](https://www.eksctl.io)
