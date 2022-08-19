@@ -131,4 +131,8 @@ use ```eksctl``` to launch eks cluster and nodegroup
 ```
 eksctl create cluster -f cluster.yaml
 ```
-- creation of cluster can take up to **15-20 minutes** so be patient...
+creation of cluster can take up to **15-20 minutes** so be patient...
+
+After creating cluster try to check if our nodes are made by:
+``` kubectl get nodes ```
+#### - namespace.yaml
