@@ -263,9 +263,49 @@ eksctl create iamserviceaccount \
 ```
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.yaml
 ```
-#### controller.yaml
+#### - controller.yaml
 ```
 wget https://jeonilshin.s3.ap-northeast-2.amazonaws.com/controller.yaml
 ```
 
 ```kubectl apply -f controller.yaml```
+#### ALB Controller 정상적으로 실해되는지 확인하기
+```
+kubectl get deployment -n kube-system aws-load-balancer-controller
+```
+```
+kubectl get sa aws-load-balancer-controller -n kube-system -o yaml
+```
+##### logs
+```
+kubectl logs -n kube-system $(kubectl get po -n kube-system | egrep -o "aws-load-balancer[a-zA-Z0-9-]+")
+```
+
+### - ingress.yaml
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: worldskills-cloud-ingress
+  namespace: worldskills-ns
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: worldskills-cloud-alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/subnets: worldskills-cloud-priv-sn-a, worldskills-cloud-priv-sn-c
+    alb.ingress.kubernetes.io/load-balancer-name: dualstack
+    alb.ingress.kubernetes.io/target-group-attributes: load_balancing.algorithm.type=least_outstanding_requests
+spec:
+  rules:
+  - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: worldskills-cloud-service
+                port:
+                  number: 3000
+```
