@@ -183,7 +183,57 @@ spec:
           protocol: TCP
 ```
 
+```kubectl apply -f deployment.yaml```
+
 A Deployment provides declarative updates for Pods and ReplicaSets.
 
 You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
 
+#### - limit.yaml
+```
+apiVersion: v1
+kind: LimitRange
+
+metadata:
+  name: worldskills-cloud-limit
+  namespace: worldskills-ns
+spec:
+  limits:
+  - max:
+      cpu: "2"
+      memory: "512Mi"
+    min:
+      cpu: "1"
+      memory: "256Mi"
+    type: Pod
+```
+
+```kubectl apply -f limit.yaml```
+
+By default, containers run with unbounded compute resources on a Kubernetes cluster. With resource quotas, cluster administrators can restrict resource consumption and creation on a namespace basis. Within a namespace, a Pod or Container can consume as much CPU and memory as defined by the namespace's resource quota. There is a concern that one Pod or Container could monopolize all available resources. A LimitRange is a policy to constrain resource allocations (to Pods or Containers) in a namespace.
+
+#### - service.yaml
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: worldskills-cloud-service
+  namespace: worldskills-ns
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: "/health"
+spec:
+  selector:
+    app: worldskills
+  ports:
+    - protocol: TCP
+      port: 3000
+      name: http
+```
+
+```kubectl apply -f service.yaml```
+
+An abstract way to expose an application running on a set of Pods as a network service.
+With Kubernetes you don't need to modify your application to use an unfamiliar service discovery mechanism. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
+
+#### controller.yaml
+```
