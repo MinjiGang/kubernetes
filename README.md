@@ -36,6 +36,6 @@ read the CNCF [announcement].
 - scaler.yaml
 
 ### Software and Framework to be install and download.
-- eksctl
-- kubectl
-- awscliv2
+- [eksctl](https://www.eksctl.io)
+- [kubectl](https://www.kubectl.io)
+- [awscliv2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
