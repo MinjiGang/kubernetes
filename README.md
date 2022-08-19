@@ -351,5 +351,7 @@ spec:
 ```
 2. In **Auto Scaling Groups** page, click ASG applied in worker node, and update **Group details** value same as below.
 ![2](https://user-images.githubusercontent.com/86287920/185660226-d42b6746-3dcf-4fc1-a8fc-c9443a2eeb97.png)
+
 ![3](https://user-images.githubusercontent.com/86287920/185660246-69b4e84c-da62-45cc-ab6e-88928c5ec82e.png)
+
 ![4](https://user-images.githubusercontent.com/86287920/185660249-76245a7b-801a-406d-a930-ff1e8d234361.png)
