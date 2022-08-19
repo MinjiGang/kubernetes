@@ -309,3 +309,10 @@ spec:
                 port:
                   number: 3000
 ```
+
+```kubectl apply -f ingress.yaml```
+#### alb 잘 실행되는지 확인하기
+``` kubectl get ingress -n worldskills-ns```
+
+![1](https://user-images.githubusercontent.com/86287920/185655862-e4fe2c3d-20d7-43a6-91ba-8cf123bae4f0.PNG)
+
