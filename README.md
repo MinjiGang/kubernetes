@@ -316,3 +316,13 @@ spec:
 
 ![1](https://user-images.githubusercontent.com/86287920/185655862-e4fe2c3d-20d7-43a6-91ba-8cf123bae4f0.PNG)
 
+#### - cwinsight.yaml
+```
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml -o cwinsight.yaml
+```
+```
+sed -i "s/{{cluster_name}}/worldskills-cloud-cluster/;s/{{region_name}}/ap-northeast-2/" ./cwinsight.yaml
+```
+```
+kubectl apply -f cwinsight.yaml
+```
