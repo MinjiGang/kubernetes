@@ -66,14 +66,12 @@ sudo echo -e "{password}\n{password}" | sudo passwd {user}
 ```
 
 `-e` is to recognize `\n` as new line.
-
 `sudo` is **root** access for Ubuntu.
-
 The above command passes the password and a new line, two times, to `passwd`, which is what passwd requires.
-
 If not using variables, I think this probably works.
 
 ##### example: (amazon linux 2)
 
 ```
 sudo echo -e "Daeyang1@#\nDaeyang1@#" | sudo passwd ec2-user
+```
