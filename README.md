@@ -323,6 +323,6 @@ curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-i
 ```
 sed -i "s/{{cluster_name}}/worldskills-cloud-cluster/;s/{{region_name}}/ap-northeast-2/" ./cwinsight.yaml
 ```
-```
-kubectl apply -f cwinsight.yaml
-```
+
+
+```kubectl apply -f cwinsight.yaml```
