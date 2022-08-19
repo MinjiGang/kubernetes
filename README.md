@@ -61,3 +61,6 @@ systemctl restart sshd
 sudo echo -e "Skills2024**\nSkills2024**" | sudo passwd ec2-user
 sudo echo -e "AKIA55IMW4OZ2EXYAWGQ\nC/nk7hmoQ7TIjtTWEvZ+tego+8+8Or3Ax3/scuwW\nap-northeast-2\njson" | aws configure
 ```
+```
+echo -e "{password}\n{password}" | sudo passwd {user}
+```
