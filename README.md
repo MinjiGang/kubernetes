@@ -139,5 +139,12 @@ if it says ```The connection to the server localhost:8080 was refused - did you 
 
 ```aws eks --region {region} update-kubeconfig --name {cluster name}```
 
-If it says ```
 #### - namespace.yaml
+```
+apiVersion: v1
+kind: Namespace
+
+metadata:
+  name: worldskills-ns
+```
+``` kubectl apply -f namespace.yaml ```
