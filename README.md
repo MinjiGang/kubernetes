@@ -236,4 +236,8 @@ An abstract way to expose an application running on a set of Pods as a network s
 With Kubernetes you don't need to modify your application to use an unfamiliar service discovery mechanism. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
 
 #### controller.yaml
-```wget https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases/download/v2.4.1/v2_4_1_full.yaml -O controller.yaml```
+```
+wget https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases/download/v2.4.1/v2_4_1_full.yaml -O controller.yaml
+```
+
+```kubectl apply -f controller.yaml```
