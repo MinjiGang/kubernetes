@@ -1,8 +1,6 @@
-<p align="center">
-  <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="200">
-</p>
-
 # Kubernetes / k8s ☸
+<img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="100">
+---
 #### files that used in this project.
 - namespace.yaml
 - cluster.yaml
