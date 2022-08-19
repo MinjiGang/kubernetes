@@ -235,6 +235,30 @@ spec:
 An abstract way to expose an application running on a set of Pods as a network service.
 With Kubernetes you don't need to modify your application to use an unfamiliar service discovery mechanism. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
 
+## ALB Ingress Controller
+1. First, create **IAM OpenID Connect(OIDC) identity provider** for the cluster. **IAM OIDC provider** must exist in the cluster in order for objects created by Kubernetes to use service account which purpose is to authenticate to API Server ro external services.
+```
+eksctl utils associate-iam-oidc-provider \
+    --region ap-northeast-2 \
+    --cluster worldskills-cloud-cluster \
+    --approve
+```
+2. Create an IAM Policy to grant to the AWS Load Balancer Controller
+```
+wget https://jeonilshin.s3.ap-northeast-2.amazonaws.com/iam_policy.json && aws iam create-policy \
+--policy-name AWSLoadBalancerControllerIAMPolicy \
+--policy-document file://iam_policy.json
+```
+3. Create ServiceAccount for AWS Load Balancer Controller
+```
+eksctl create iamserviceaccount \
+    --cluster worldskills-cloud-cluster \
+    --namespace kube-system \
+    --name aws-load-balancer-controller \
+    --attach-policy-arn arn:aws:iam::$ACCOUNT_ID:policy/AWSLoadBalancerControllerIAMPolicy \
+    --override-existing-serviceaccounts \
+    --approve
+```
 #### controller.yaml
 ```
 wget https://jeonilshin.s3.ap-northeast-2.amazonaws.com/controller.yaml
