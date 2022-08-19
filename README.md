@@ -37,5 +37,5 @@ read the CNCF [announcement].
 
 ### Software and Framework to be install and download.
 - [eksctl](https://www.eksctl.io)
-- [kubectl](https://www.kubectl.io)
+- [kubectl](https://kubernetes.io/docs/home/)
 - [awscliv2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
