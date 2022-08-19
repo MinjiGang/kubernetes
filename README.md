@@ -34,5 +34,8 @@ read the CNCF [announcement].
 - controller.yaml
 - cwinsight.yaml
 - scaler.yaml
+
 ### Software and Framework to be install and download.
-- eksctl  - kubectl - awscliv2
+- eksctl
+- kubectl
+- awscliv2
