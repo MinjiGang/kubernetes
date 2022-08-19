@@ -128,7 +128,9 @@ secretsEncryption:
   keyARN: arn:aws:kms:ap-northeast-2:956193760179:key/d42fbb4c-6c77-4aab-af4f-478211c948f3
 ```
 use ```eksctl``` to launch eks cluster and nodegroup
+
 ``` eksctl create cluster -f cluster.yaml ```
+
 creation of cluster can take up to **15-20 minutes** so be patient...
 
 After creating cluster try to check if our nodes are made by: ``` kubectl get nodes ```
