@@ -259,6 +259,10 @@ eksctl create iamserviceaccount \
     --override-existing-serviceaccounts \
     --approve
 ```
+4. Add AWS Load Balancer controller to the cluster. First, install **cert-manager**  to insert the certificate configuration into the Webhook. **Cert-manager** is an open source that automatically provisions and manages TLS certificates within a Kubernetes cluster.
+```
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.yaml
+```
 #### controller.yaml
 ```
 wget https://jeonilshin.s3.ap-northeast-2.amazonaws.com/controller.yaml
