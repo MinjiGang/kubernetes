@@ -356,3 +356,10 @@ spec:
 ![3](https://user-images.githubusercontent.com/86287920/185660246-69b4e84c-da62-45cc-ab6e-88928c5ec82e.png)
 
 ![4](https://user-images.githubusercontent.com/86287920/185660249-76245a7b-801a-406d-a930-ff1e8d234361.png)
+
+### - cluster-autoscaler.yaml
+```
+wget https://jeonilshin.s3.ap-northeast-2.amazonaws.com/autoscaler.yaml
+```
+
+```kubectl apply -f autoscaler.yaml```
