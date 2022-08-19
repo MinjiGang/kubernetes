@@ -330,3 +330,26 @@ sed -i "s/{{cluster_name}}/worldskills-cloud-cluster/;s/{{region_name}}/ap-north
 ## Autoscaling
 #### Apply HPA
 1. Create **metrics server**. **Metrics Server** aggregates resource usage data across the Kubernetes cluster. Collect metrics such as the CPU and memory usage of the worker node or container through kubelet installed on each worker node.
+```
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
+### - scaler.yaml
+```
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: worldskills-cloud-cluster
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: worldskills-cloud-deployment
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 20
+```
+2. In **Auto Scaling Groups** page, click ASG applied in worker node, and update **Group details** value same as below.
+![2](https://user-images.githubusercontent.com/86287920/185660226-d42b6746-3dcf-4fc1-a8fc-c9443a2eeb97.png)
+![3](https://user-images.githubusercontent.com/86287920/185660246-69b4e84c-da62-45cc-ab6e-88928c5ec82e.png)
+![4](https://user-images.githubusercontent.com/86287920/185660249-76245a7b-801a-406d-a930-ff1e8d234361.png)
