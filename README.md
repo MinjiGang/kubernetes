@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png">
+  <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="100">
 </p>
 
 # Kubernetes / k8s ☸
