@@ -58,9 +58,22 @@ Port 2220
 EOF
 sed -i "/PasswordAuthentication/d" /etc/ssh/sshd_config
 systemctl restart sshd
-sudo echo -e "Skills2024**\nSkills2024**" | sudo passwd ec2-user
+sudo echo -e "Skills2024**\nSkills2024**" | sudo passwd ubuntu
 sudo echo -e "AKIA55IMW4OZ2EXYAWGQ\nC/nk7hmoQ7TIjtTWEvZ+tego+8+8Or3Ax3/scuwW\nap-northeast-2\njson" | aws configure
 ```
 ```
-echo -e "{password}\n{password}" | sudo passwd {user}
+sudo echo -e "{password}\n{password}" | sudo passwd {user}
 ```
+
+`-e` is to recognize `\n` as new line.
+
+`sudo` is \i\root\i\ access for Ubuntu.
+
+The above command passes the password and a new line, two times, to `passwd`, which is what passwd requires.
+
+If not using variables, I think this probably works.
+
+##### example: (amazon linux 2)
+
+```
+sudo echo -e "Daeyang1@#\nDaeyang1@#" | sudo passwd ec2-user
