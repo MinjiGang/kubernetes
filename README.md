@@ -67,7 +67,7 @@ sudo echo -e "{password}\n{password}" | sudo passwd {user}
 
 `-e` is to recognize `\n` as new line.
 
-`sudo` is \i\root\i\ access for Ubuntu.
+`sudo` is **root** access for Ubuntu.
 
 The above command passes the password and a new line, two times, to `passwd`, which is what passwd requires.
 
