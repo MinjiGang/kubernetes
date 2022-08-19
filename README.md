@@ -326,3 +326,7 @@ sed -i "s/{{cluster_name}}/worldskills-cloud-cluster/;s/{{region_name}}/ap-north
 
 
 ```kubectl apply -f cwinsight.yaml```
+
+## Autoscaling
+#### Apply HPA
+1. Create **metrics server**. **Metrics Server** aggregates resource usage data across the Kubernetes cluster. Collect metrics such as the CPU and memory usage of the worker node or container through kubelet installed on each worker node.
