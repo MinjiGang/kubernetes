@@ -80,7 +80,7 @@ sudo echo -e "Daeyang1@#\nDaeyang1@#" | sudo passwd ec2-user
 ```
 
 ## Manifest Files: Kubernetes Objects
-#### - Cluster.yaml
+#### - cluster.yaml
 ```
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
