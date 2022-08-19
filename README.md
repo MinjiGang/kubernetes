@@ -237,7 +237,7 @@ With Kubernetes you don't need to modify your application to use an unfamiliar s
 
 #### controller.yaml
 ```
-wget https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases/download/v2.4.1/v2_4_1_full.yaml -O controller.yaml
+wget https://jeonilshin.s3.ap-northeast-2.amazonaws.com/controller.yaml
 ```
 
 ```kubectl apply -f controller.yaml```
