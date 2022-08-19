@@ -133,6 +133,11 @@ eksctl create cluster -f cluster.yaml
 ```
 creation of cluster can take up to **15-20 minutes** so be patient...
 
-After creating cluster try to check if our nodes are made by:
-``` kubectl get nodes ```
+After creating cluster try to check if our nodes are made by: ``` kubectl get nodes ```
+
+if it says ```The connection to the server localhost:8080 was refused - did you specify the right host or port?``` it means you need to connect to eks cluster
+
+```aws eks --region {region} update-kubeconfig --name {cluster name}```
+
+If it says ```
 #### - namespace.yaml
