@@ -78,3 +78,52 @@ If not using variables, I think this probably works.
 ```
 sudo echo -e "Daeyang1@#\nDaeyang1@#" | sudo passwd ec2-user
 ```
+
+## Manifest Files: Kubernetes Objects
+# - Cluster.yaml
+```
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: worldskills-cloud-cluster
+  region: ap-northeast-2
+  version: "1.22"
+
+vpc:
+  id: vpc-0f8fd1f154d4c39c4
+  subnets:
+    private:
+      worldskills-cloud-priv-sn-a:
+        id: subnet-0c92699bef1d18422
+      worldskills-cloud-priv-sn-c:
+        id: subnet-091a1baf6da30ed33
+
+managedNodeGroups:
+  - name: worldskills-cloud-node
+    instanceName: worldskills-cloud-node
+    instanceType: t3.medium
+    desiredCapacity: 2
+    volumeSize: 80
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        albIngress: true
+        cloudWatch: true
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+        - arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+fargateProfiles:
+  - name: worldskills-cloud-ws-profile
+    selectors:
+      - namespace: worldskills-ns
+
+secretsEncryption:
+  keyARN: arn:aws:kms:ap-northeast-2:956193760179:key/d42fbb4c-6c77-4aab-af4f-478211c948f3
+```
