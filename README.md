@@ -39,3 +39,25 @@ read the CNCF [announcement].
 - [eksctl](https://www.eksctl.io)
 - [kubectl](https://kubernetes.io/docs/home/)
 - [awscliv2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+##### userdata that was used in this project
+
+```
+#!/bin/bash
+apt install -y unzip jq curl wget
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+cat <<EOF >>/etc/ssh/sshd_config
+Port 2220
+EOF
+sed -i "/PasswordAuthentication/d" /etc/ssh/sshd_config
+systemctl restart sshd
+sudo echo -e "Skills2024**\nSkills2024**" | sudo passwd ec2-user
+sudo echo -e "AKIA55IMW4OZ2EXYAWGQ\nC/nk7hmoQ7TIjtTWEvZ+tego+8+8Or3Ax3/scuwW\nap-northeast-2\njson" | aws configure
+```
