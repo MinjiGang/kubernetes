@@ -154,3 +154,36 @@ metadata:
 ``` kubectl apply -f namespace.yaml ```
 
 In Kubernetes, namespaces provides a mechanism for isolating groups of resources within a single cluster. Names of resources need to be unique within a namespace, but not across namespaces. Namespace-based scoping is applicable only for namespaced objects (e.g. Deployments, Services, etc) and not for cluster-wide objects (e.g. StorageClass, Nodes, PersistentVolumes, etc).
+
+#### - deployment.yaml
+```
+kind: Deployment
+
+metadata:
+  name: worldskills-cloud-deployment
+  namespace: worldskills-ns
+  labels:
+    app: worldskills
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: worldskills
+  template:
+    metadata:
+      labels:
+        app: worldskills
+    spec:
+      containers:
+      - name: app-container
+        image: jeonilshin/task1:latest
+        ports:
+        - name: http
+          containerPort: 3000
+          protocol: TCP
+```
+
+A Deployment provides declarative updates for Pods and ReplicaSets.
+
+You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
+
