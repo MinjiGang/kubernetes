@@ -356,6 +356,7 @@ spec:
 ```
 
 ```kubectl apply -f scaler.yaml```
+
 2. In **Auto Scaling Groups** page, click ASG applied in worker node, and update **Group details** value same as below.
 
 ![2](https://user-images.githubusercontent.com/86287920/185660226-d42b6746-3dcf-4fc1-a8fc-c9443a2eeb97.png)
