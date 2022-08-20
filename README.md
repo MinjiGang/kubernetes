@@ -64,8 +64,17 @@ EOF
 sed -i "/PasswordAuthentication/d" /etc/ssh/sshd_config
 systemctl restart sshd
 sudo echo -e "Skills2024**\nSkills2024**" | sudo passwd ubuntu
-sudo su ec2-user
-sudo echo -e "AKIA55IMW4OZ2EXYAWGQ\nC/nk7hmoQ7TIjtTWEvZ+tego+8+8Or3Ax3/scuwW\nap-northeast-2\njson" | aws configure
+mkdir .aws
+cat <<EOF >>./.aws/credentials
+[default]
+aws_access_key_id = AKIA55IMW4OZ2EXYAWGQ
+aws_secret_access_key = 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
+EOF
+cat <<EOF >>./.aws/config
+[default]
+region = ap-northeast-2
+output = json
+EOF
 ```
 ```
 sudo echo -e "{password}\n{password}" | sudo passwd {user}
@@ -116,7 +125,7 @@ managedNodeGroups:
       withAddonPolicies:
         imageBuilder: true
         autoScaler: true
-        albIngress: true
+        awsLoadBalancerController: true
         cloudWatch: true
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
