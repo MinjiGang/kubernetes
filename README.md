@@ -141,6 +141,10 @@ fargateProfiles:
 
 secretsEncryption:
   keyARN: arn:aws:kms:ap-northeast-2:956193760179:key/d42fbb4c-6c77-4aab-af4f-478211c948f3
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
 ```
 use ```eksctl``` to launch eks cluster and nodegroup
 
