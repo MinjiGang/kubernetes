@@ -161,6 +161,7 @@ In Kubernetes, namespaces provides a mechanism for isolating groups of resources
 
 #### - deployment.yaml
 ```
+apiVersion: apps/v1
 kind: Deployment
 
 metadata:
