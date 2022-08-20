@@ -64,17 +64,6 @@ EOF
 sed -i "/PasswordAuthentication/d" /etc/ssh/sshd_config
 systemctl restart sshd
 sudo echo -e "Skills2024**\nSkills2024**" | sudo passwd ubuntu
-mkdir .aws
-cat <<EOF >>./.aws/credentials
-[default]
-aws_access_key_id = AKIA55IMW4OZ2EXYAWGQ
-aws_secret_access_key = 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
-EOF
-cat <<EOF >>./.aws/config
-[default]
-region = ap-northeast-2
-output = json
-EOF
 ```
 ```
 sudo echo -e "{password}\n{password}" | sudo passwd {user}
