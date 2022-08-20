@@ -299,7 +299,7 @@ metadata:
     alb.ingress.kubernetes.io/load-balancer-name: worldskills-cloud-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/subnets: worldskills-cloud-priv-sn-a, worldskills-cloud-priv-sn-c
+    alb.ingress.kubernetes.io/subnets: worldskills-cloud-pub-sn-a, worldskills-cloud-pub-sn-c
     alb.ingress.kubernetes.io/ip-address-type: dualstack
     alb.ingress.kubernetes.io/target-group-attributes: load_balancing.algorithm.type=least_outstanding_requests
 spec:
